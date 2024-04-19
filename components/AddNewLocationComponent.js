@@ -8,27 +8,32 @@ const AddNewLocationComponent = ({ results }) => {
   const [closingTime, setClosingTime] = useState('');
   const [locations, setLocations] = useState([]);
 
+  
   useEffect(() => {
-    const loadLocations = async () => {
-      try {
-        const response = await fetchLocations();
-        setLocations(response);
-        console.log(response);
-      } catch (error) {
-        console.error('Error fetching locations:', error);
-      }
-    };
 
     loadLocations();
   }, []);
 
+  const loadLocations = async () => {
+    try {
+      const response = await fetchLocations();
+      setLocations(response);
+      console.log(response);
+    } catch (error) {
+      console.error('Error fetching locations:', error);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0];
+
     const newLocation = {
       name,
-      OpenTime: openingTime,
-      CloseTime: closingTime,
+      OpenTime: `${formattedDate}T${openingTime}`,//openingTime,
+      CloseTime: `${formattedDate}T${closingTime}`, //closingTime,
     };
 
     try {
@@ -36,6 +41,7 @@ const AddNewLocationComponent = ({ results }) => {
       setName('');
       setOpeningTime('');
       setClosingTime('');
+      loadLocations();
       alert('Location added successfully!');
     } catch (error) {
       console.error('Error adding location:', error);
