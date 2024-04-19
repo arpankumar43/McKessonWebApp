@@ -27,7 +27,7 @@ export const getBingSearch = async (query, apiKey) => {
 // Function to fetch locations from .NET Backend API
 export const fetchLocations = async () => {
   try {
-    const response = await get(API_ENDPOINTS.GET_LOCATIONS);
+    const response = await get(API_ENDPOINTS.GET_ALL_LOCATIONS);
     return response;
   } catch (error) {
     throw error;
