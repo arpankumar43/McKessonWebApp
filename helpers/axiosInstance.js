@@ -24,10 +24,20 @@ export const getBingSearch = async (query, apiKey) => {
   }
 };
 
-// Function to fetch locations from .NET Backend API
+// Function to fetch all locations from .NET Backend API
 export const fetchLocations = async () => {
   try {
     const response = await get(API_ENDPOINTS.GET_ALL_LOCATIONS);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// Function to fetch locations from .NET Backend API
+export const fetchAvailLocations = async () => {
+  try {
+    const response = await get(API_ENDPOINTS.GET_LOCATIONS);
     return response;
   } catch (error) {
     throw error;

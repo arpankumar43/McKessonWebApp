@@ -9,14 +9,14 @@ const HeaderComponent = () => {
       <div>
         <Link href="/">
           <span className="text-white text-xl font-bold">
-            Microsoft Bing 
+            Bing 
           </span>
         </Link>
       </div>
       <div>
-        {/* <Link href="/">
-          <span className="text-white text-sm mr-4">About</span>
-        </Link> */}
+        <Link href="/">
+          <span className="text-white text-sm mr-4">Home</span>
+        </Link>
         <Link  href="/backendApi" className="text-white text-sm mr-4 bg-blue-700 hover:bg-blue-800 rounded-lg text-sm px-4 py-2 ">
           <span>Backend API Test </span><FontAwesomeIcon icon={faArrowRight} className="text-lg" />
         </Link>
